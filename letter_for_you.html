@@ -1,0 +1,132 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>A Letter for You</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: #f2e9e4;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      overflow: hidden;
+    }
+
+    .envelope {
+      width: 250px;
+      height: 180px;
+      background: #d8c3a5;
+      position: relative;
+      cursor: pointer;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+      border-radius: 4px;
+      transition: transform 0.3s;
+    }
+
+    .envelope:hover {
+      transform: scale(1.05);
+    }
+
+    .flap {
+      position: absolute;
+      top: 0;
+      width: 100%;
+      height: 50%;
+      background: #e6ccb2;
+      clip-path: polygon(50% 0%, 100% 100%, 0% 100%);
+    }
+
+    .letter {
+      display: none;
+      background: #fffaf0;
+      padding: 30px;
+      max-width: 500px;
+      width: 80%;
+      border-radius: 15px;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+      animation: fadeIn 1s ease forwards;
+      font-family: 'Georgia', serif;
+      border: 2px solid #d8b88c;
+      background-image: linear-gradient(to top right, #f7e8d0, #fff3c2);
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .letter-text {
+      font-size: 18px;
+      line-height: 1.8;
+      color: #4a4a4a;
+      margin-bottom: 20px;
+      font-weight: 400;
+    }
+
+    .letter-text p {
+      margin-bottom: 15px;
+    }
+
+    .letter-signature {
+      font-size: 22px;
+      color: #3a2e2e;
+      font-style: italic;
+      text-align: right;
+      margin-top: 30px;
+    }
+
+    .letter::before {
+      content: "💖";
+      font-size: 50px;
+      position: absolute;
+      top: -40px;
+      left: 50%;
+      transform: translateX(-50%);
+      opacity: 0.8;
+    }
+
+    .letter::after {
+      content: "💌";
+      font-size: 40px;
+      position: absolute;
+      bottom: -40px;
+      right: 50%;
+      transform: translateX(50%);
+      opacity: 0.8;
+    }
+
+    /* Cute text on the envelope */
+    .envelope p {
+      position: absolute;
+      top: 10px;
+      left: 10px;
+      color: black;
+      font-size: 14px;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <div class="envelope" onclick="openLetter()">
+    <div class="flap"></div>
+    <p>" I'm Sorry Madamji🥺🌹.(Tap me) "</p>
+  </div>
+  <div class="letter" id="letter">
+    <p class="letter-text">I just want to say that if anything I said or did hurt you or made you feel bad, then I’m genuinely sorry. Sometimes it’s not easy to handle anger properly, and in that mess, I ended up hurting you without meaning to.</p>
+    <p class="letter-text">You’re not just important to me—you’re a little special too. Honestly, when I don’t get to talk to you, the day feels boring and even my mood’s off. And I really don’t want any awkwardness or misunderstandings between us.</p>
+    <p class="letter-text">Maybe some of my reactions were wrong, but believe me, I never had any intention to hurt you. I just want things to go back to how they were before… I mean, we were never totally “normal” anyway, but we were definitely better than how things are now.</p>
+    <p class="letter-signature">— Harsh</p>
+  </div>  
+  <script>
+    function openLetter() {
+      document.querySelector('.envelope').style.display = 'none';
+      document.getElementById('letter').style.display = 'block';
+    }
+  </script>
+</body>
+</html>
